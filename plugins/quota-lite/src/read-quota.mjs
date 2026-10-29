@@ -3,7 +3,7 @@ import { readQuota } from './quota.mjs';
 // One-shot worker for the floating window. Credentials stay inside Codex.
 const controller = new AbortController();
 process.stdin.setEncoding('utf8');
-process.stdin.on('data', () => controller.abort());
+process.stdin.on('data', chunk => { if (chunk.trim()) controller.abort(); });
 process.stdin.on('end', () => controller.abort());
 try {
   const result = await readQuota({ signal: controller.signal, timeoutMs: 20000 });

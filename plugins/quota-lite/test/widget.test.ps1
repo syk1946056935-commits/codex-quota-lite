@@ -29,7 +29,7 @@ $tempDir=Join-Path ([IO.Path]::GetTempPath()) ('quota-widget-test-'+[guid]::NewG
 [void][IO.Directory]::CreateDirectory($tempDir)
 $worker=Join-Path $tempDir 'slow-worker.mjs'
 [IO.File]::WriteAllText($worker,@'
-process.stdin.on('data',()=>{process.stdout.write(JSON.stringify({status:'error',error:{code:'cancelled'}}));process.exit(0)});
+process.stdin.on('data',chunk=>{if(!chunk.toString('utf8').trim())return;process.stdout.write(JSON.stringify({status:'error',error:{code:'cancelled'}}));process.exit(0)});
 setTimeout(()=>{process.stdout.write(JSON.stringify({status:'ok',buckets:[]}));process.exit(0)},1800);
 '@,[Text.UTF8Encoding]::new($false))
 $node=Resolve-QuotaNode
