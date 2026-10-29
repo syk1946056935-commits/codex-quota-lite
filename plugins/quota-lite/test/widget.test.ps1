@@ -44,7 +44,7 @@ try {
  $timer=New-Object Windows.Threading.DispatcherTimer;$timer.Interval=[TimeSpan]::FromMilliseconds(50)
  $timer.Add_Tick({$script:beats++;$script:reply=Receive-QuotaRequest $request;if($null -ne $script:reply -or $script:beats -ge 100){$frame.Continue=$false}})
  $timer.Start();[Windows.Threading.Dispatcher]::PushFrame($frame);$timer.Stop()
- Assert-True ($script:beats -ge 10 -and $script:reply.status -eq 'ok') 'WPF dispatcher stays responsive during slow quota read'
+ Assert-True ($script:beats -ge 10 -and $script:reply.status -eq 'ok') ("WPF dispatcher stays responsive during slow quota read (beats=$script:beats; status=$($script:reply.status); node=$node; stdout=$($request.OutputTask.GetAwaiter().GetResult()); stderr=$($request.ErrorTask.GetAwaiter().GetResult()))")
  $request.Process.Dispose();$request=Start-QuotaRequest $node $worker;Stop-QuotaRequest $request
  $deadline=[datetime]::UtcNow.AddSeconds(3)
  while(-not $request.Process.HasExited -and [datetime]::UtcNow -lt $deadline){Start-Sleep -Milliseconds 20}
