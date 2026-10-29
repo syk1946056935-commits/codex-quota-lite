@@ -1,0 +1,16 @@
+node_modules/
+*.log
+*.tmp
+*.dpapi
+.env
+.env.*
+!.env.example
+auth.json
+state.json
+config.toml
+*.before-import.toml
+backups/
+coverage/
+dist/
+.DS_Store
+Thumbs.db

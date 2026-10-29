@@ -1,0 +1,9 @@
+{
+  "name": "codex-quota-lite",
+  "version": "1.0.4",
+  "private": true,
+  "type": "module",
+  "scripts": {"test": "node --test plugins/quota-lite/test/quota.test.mjs plugins/quota-lite/test/transport.test.mjs"},
+  "engines": {"node": ">=20"},
+  "license": "MIT"
+}

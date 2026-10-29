@@ -1,0 +1,8 @@
+{
+  "name": "quota-lite",
+  "version": "1.0.4",
+  "private": true,
+  "type": "module",
+  "scripts": {"start": "node src/server.mjs", "test": "node --test test/quota.test.mjs test/transport.test.mjs"},
+  "engines": {"node": ">=20"}
+}

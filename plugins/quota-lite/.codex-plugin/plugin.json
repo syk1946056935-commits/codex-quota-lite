@@ -1,0 +1,21 @@
+{
+  "name": "quota-lite",
+  "version": "1.0.4",
+  "description": "在 Codex 中查看账户剩余额度与重置时间。只读、本地运行、无需单独启动。",
+  "author": { "name": "Quota Lite contributors" },
+  "license": "MIT",
+  "mcpServers": "./.mcp.json",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "额度",
+    "shortDescription": "剩余额度，一眼看清",
+    "longDescription": "在应用内查看 Codex 各额度窗口的剩余百分比和重置时间。界面打开时每分钟刷新；通过本机 Codex 官方接口读取，无需额外账户。",
+    "developerName": "Quota Lite contributors",
+    "category": "Productivity",
+    "capabilities": ["Read", "Interactive"],
+    "brandColor": "#2463EB",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg",
+    "defaultPrompt": ["打开额度面板", "查看我的 Codex 剩余额度"]
+  }
+}

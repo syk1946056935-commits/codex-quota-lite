@@ -1,0 +1,10 @@
+{
+  "name": "quota-lite-community",
+  "interface": {"displayName": "Quota Lite"},
+  "plugins": [{
+    "name": "quota-lite",
+    "source": {"source": "local", "path": "./plugins/quota-lite"},
+    "policy": {"installation": "AVAILABLE", "authentication": "ON_INSTALL"},
+    "category": "Productivity"
+  }]
+}
